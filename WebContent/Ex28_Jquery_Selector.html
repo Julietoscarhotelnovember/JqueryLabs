@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+ <script type="text/javascript">
+  $(document).ready(function(){
+   $("#testTable td").click(function(){
+    //alert($(this).text());
+    //parent() : 대상의 부모(상위) 개체 
+    //alert($(this).parent().html());
+    //alert($(this).parent().parent().html());
+    //클릭된 td가 속한 tr이 몇개의 td를 가지고 있는지 출력
+    //children() : 대상의 자식 
+    //alert($(this).parent().children().length);
+    //클릭된 td가 속한 tr의 자식 td 중 첫번째 요소의 텍스트
+    //alert으로 출력 
+    //alert($(this).parent().children().eq(0).text());
+    //siblings : 형제 요소를 탐색 
+    alert($(this).siblings().eq(0).text());
+   });
+  });
+ </script>
+</head>
+<body>
+<!-- 
+  id가 testTable인 테이블의 td를 클릭하면 
+  자신의 text 가 alert으로 출력 
+ -->
+<table border=1 cellpadding="10" id="testTable">
+ <tr>
+  <td>1</td><td>강동원</td><td>탤런트</td>
+ </tr>
+ <tr>
+  <td>2</td><td>지석진</td><td>탤런트</td>
+ </tr>
+ <tr>
+  <td>3</td><td>이솜</td><td>모델</td>
+ </tr>
+</table>
+</body>
+</html>
+
+

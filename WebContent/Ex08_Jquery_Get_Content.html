@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript">
+	/*  
+		Three simple, but useful, jQuery methods for DOM manipulation are:
+		**Read / Write > HTML 요소에
+		text() - [Sets or returns] the text content of selected elements
+		html() - [Sets or returns] the content of selected elements (including HTML markup)
+		val() -  [Sets or returns] the value of form fields
+	*/
+		$(function(){
+			$('#btn1').click(function() {
+				alert("Text: "+$('#test').text()); //텍스트만 나옴
+			});
+			$('#btn2').click(function() {
+				alert("html: "+$('#test').html()); //html까지 나옴
+			});
+			$('#btn3').click(function() {
+				$('#test').html("<div>AAA</div>"); //html적용됨 text하면 그대로 적용됨
+			});
+			$('#btn4').click(function() {
+				alert("value: "+$('#test2').val());
+			});
+		});
+	
+	</script>
+</head>
+<body>
+	<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+
+	<button id="btn1">Show Text</button>
+	<button id="btn2">Show HTML</button>
+	<button id="btn3">HTML</button>
+	<button id="btn4">input Tag</button>
+	<!-- val()
+		 <input type="text" value="">
+	
+	 -->
+	<input type="text" id="test2" value="Mickey Mouse">
+</body>
+</html>

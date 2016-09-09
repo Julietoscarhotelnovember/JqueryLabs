@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<link rel="stylesheet"	href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+	<style type="text/css">
+	body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 60%;
+	     }
+	</style> 
+	<script type="text/javascript">
+		$(function(){
+			$('#dialog').dialog(
+				{
+					autoOpen:false,
+					show:{effect:"blind",duraction:2000},
+					hide:{effect:"explode",duraction:1000}
+				}		
+			
+			);
+			
+			$('#opener').click(function() {
+				$('#dialog').dialog('open'); // {autOpen:true}
+			});
+		});
+	
+	</script>    
+</head>
+<body>
+		<p>Basic Content</p>
+		<button id="opener">Open Dialog</button>
+		
+		<!-- POPUP DIV -->
+		<div id="dialog" title="Basic Dialog">
+			<p>
+				감기 조심하세요 ^^!
+			</p>
+		</div>
+</body>
+</html>

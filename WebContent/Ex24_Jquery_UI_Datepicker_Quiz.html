@@ -1,0 +1,105 @@
+
+
+<!doctype html>
+<html>
+    <meta charset="UTF-8" />
+    <head>
+        <title>Datepicker 기본</title>
+	  	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.0/themes/ui-darkness/jquery-ui.css">
+	    <style type="text/css">
+			body {
+					font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+					font-size: 62.5%;
+				 }
+		</style>
+    <script>
+    $(function() {
+        //기본
+        //$( "#startDate" ).datepicker();
+        var monthNames = [];
+        for(var i=1;i<=12;i++){
+            monthNames.push(i+"월");
+        }
+        //console.log(monthNames);
+
+        // 속성 적용
+        $( "#startDate, #endDate, #dates" ).datepicker({
+            dateFormat:'yy-mm-dd' //날짜 형식. y는 14, yy는 2014인것 주의
+            ,prevText: '이전 달' //이전달을 나타내는 Tool tip text
+            ,nextText: '다음 달' //다음달을 나타내는 Tool tip text
+            ,monthNames: monthNames //각 월을 나타내는 배열
+            ,monthNamesShort : monthNames //월 짧게
+            //요일 나타내는 단어.(일요일 부터 시작)
+            //,dayNames:['일요일','월요일','화요일','수요일','목요일','금요일','토요일']
+            ,dayNamesMin:    ['일','월','화','수','목','금','토']    
+            ,yearSuffix:'년'    //년도 뒤에 나옴    
+            ,showMonthAfterYear: true //true면 년이 앞에 나오고 false면 월이 앞에 나옴
+        });
+
+	
+        /*
+        	 onClose: function( selectedDate ) {
+    				$( "#to" ).datepicker( "option", "minDate", selectedDate );
+  				}	
+        
+        */
+        
+        $("#startDate").datepicker("option","onClose",
+        		function(selectedDate){
+        					console.log("selectedDate :" + selectedDate);
+        					//div태그에 달력 
+            				$("#dates").datepicker("option","minDate", selectedDate);
+            				$("#totalDates").text(calcDates());
+         				}
+        			);
+     
+        $("#endDate").datepicker("option","onClose",
+        		function(selectedDate){
+        					console.log(selectedDate);
+            				$("#dates").datepicker("option","maxDate", selectedDate);
+            				$("#totalDates").text(calcDates());
+        				}
+        			);
+			
+		
+      });
+      
+      
+        function calcDates()
+        {
+            var minDate = new Date($("#dates").datepicker("option","minDate"));
+            var maxDate = new Date($("#dates").datepicker("option","maxDate"));
+            console.log(minDate + " / " + maxDate);
+            
+            var totdate = 0;
+            if(maxDate.getDate() >= minDate.getDate()){
+            	totDate = maxDate.getDate() - minDate.getDate();
+            }
+            
+           /*  var totDate = 0;
+            if(maxDate >= minDate){
+            	console.log(maxDate.getTime()+"/"+minDate.getTime()); 
+            	console.log(maxDate.getTime()-minDate.getTime() + "/" + (24*60*60*1000))
+            	console.log((maxDate.getTime()-minDate.getTime())/(24*60*60*1000));
+                totDate = (maxDate.getTime()-minDate.getTime())/(24*60*60*1000) + 1;
+            } */
+            return totDate;
+        }
+
+          </script>
+    </head>
+    <body>
+        <h3>교육기간</h3>
+        <p>시작일 : 
+        	<input type="text" id="startDate"> ~ 종료일 : 
+        	<input type="text" id="endDate">
+        </p>
+        <div id="dates">
+            <p>
+            	교육기간은 총<span id="totalDates">0</span>일 입니다.
+            </p>
+        </div> 
+    </body>
+</html>

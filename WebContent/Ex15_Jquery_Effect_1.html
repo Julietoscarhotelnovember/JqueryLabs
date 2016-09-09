@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Effect</title>
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.region').show();
+			$('#moreregion').hide();
+			//$("p").toggle();  hide(),show() 다 가지고 있다
+			
+			$('.more').click(function(){
+				$('#moreregion').show(5000,function(){alert('END');});
+				$(this).hide();
+			});
+			
+			$('#btn').click(function(){
+				$('#first').fadeIn(5000);
+				$('#second').fadeOut(5000);
+				// $("#div1").fadeToggle();
+			});
+		});
+	
+	</script>
+</head>
+<body>
+	<div class="region" style="display:none">
+		hello world Main Content
+	</div>
+	<span class="more">more content</span>
+	<div id="moreregion" style="height: 100px; background-color: gold">
+		See you again....
+	</div>
+	<hr>
+	<input type="button" id="btn" value="페이드 효과">
+	<div id="first"
+		style="background-color: gold; height: 100px; display: none">
+		First DIV
+	</div>
+	<div id="second"
+		style="background-color: gold; height: 100px;">
+		Second DIV
+	</div>
+</body>
+</html>

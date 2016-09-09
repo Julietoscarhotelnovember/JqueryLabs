@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery UI</title>
+	
+	<!-- <script src="script/jquery-3.1.0.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="script/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="script/jquery-ui.min.css">
+    <style type="text/css">
+    	#dragable {width: 150px ; height: 150px; background-color: gray;}
+    </style>
+    <script type="text/javascript">
+		/* 
+			1. jquery UI > http://jqueryui.com/
+			2. UI > js 파일
+                     >다운로드 :version 1.12.0
+                     >CDN : https://code.jquery.com/
+                       >압축버전(min) : https://code.jquery.com/ui/1.12.0/jquery-ui.min.js (사용)
+                       >비압축(편집)  : https://code.jquery.com/ui/1.12.0/jquery-ui.js
+            3. UI > CSS 파일 
+                    > Theme 
+                    > ui.css
+                    
+            4.jquery 사용 (core 와 UI)
+              CDN)
+                 https://code.jquery.com/jquery-2.2.4.min.js
+                 https://code.jquery.com/ui/1.12.0/jquery-ui.min.js
+                 http://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css OR
+                 http://code.jquery.com/ui/1.12.0/jquery-ui.js
+              File DOWN)
+                 1. jquery-2.2.4
+                 2. jquery-ui.min.js
+                 3. jquery-ui.min.css  or jquery-ui.theme.min.css
+			
+             종류(UI)
+                 1. 상호작용 UI(Interactions)
+                 2. 위젯 UI(Widgets) 간단한 응용 프로그램(달력 ,시계)
+		         3. 효과 UI (Effects) 
+		*/
+		$(function(){
+			$('#dragable').draggable();
+		});
+		
+	</script>
+</head>
+<body>
+		<div id="dragable" class="ui-widget-content">
+			나를 움직여봐
+		</div>
+</body>
+</html>

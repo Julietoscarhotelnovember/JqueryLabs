@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript">
+			//일반 자바스크립트 와 jquery 코드 혼용
+			function javascriptFunc(){
+				var arrayobj = [];
+				//arrayobj 배열에 
+				//{grade:129th , name:홍길동 , number:10} > 배열에 push
+				
+				//[ {} , {} , {}]
+				$("table > tbody > tr").each(function(index){
+							//hint : $(this) 가 <tr></tr> 전체
+							arrayobj.push(
+											{
+											  grade : $(this).children().eq(0).text(),
+											  name  : $(this).children().eq(1).text(),
+											  number: $(this).children().eq(2).text()
+											}
+										);
+					});
+			console.log(arrayobj);
+						
+			//배열 출력(arrayobj)
+			//1. javascript 구문으로
+			for(var i = 0 ; i < arrayobj.length ; i++){
+				console.log(arrayobj[i].grade + "/" +
+							arrayobj[i].name  + "/" + 
+							arrayobj[i].number);
+			}	
+			//2. $.each() jquery 구문으로 출력하세요
+			//단 displayLayer 안에다 뒷쪽에 붙여서 출력하세요
+			//   input 태그를 만들어서 value값에 아래처럼
+			//<input type='text' value="129th 홍길동 10"> 
+			$.each(arrayobj,function(index,obj){
+				$('#displayLayer').append(
+										"<input type='text' value='" + 
+				 						obj.grade+" "+obj.name+" "+obj.number +"'><br>"
+										);
+			});	
+				
+				
+			}
+		</script>
+</head>
+<body>
+	<table  border="1">
+		<thead>
+			<tr><th>기수</th><th>이름</th><th>번호</th><tr>
+		<thead>
+		<tbody>
+			<tr>
+				<td>129th</td><td>홍길동</td><td>10</td>
+			</tr>
+			<tr>
+				<td>129th</td><td>김유신</td><td>20</td>
+			</tr>
+			<tr>
+				<td>129th</td><td>유관순</td><td>30</td>
+			</tr>
+			
+		</tbody>	
+	</table>
+	<p>
+		<button onclick="javascriptFunc()">함수 호출</button>
+	</p>
+	<div id="displayLayer"></div>
+</body>
+</html>

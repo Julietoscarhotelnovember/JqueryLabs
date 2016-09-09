@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+	.redcolor {color:red;}
+	.bluecolor {color:blue;}
+	.greencolor {color:green;}
+	.whitecolor {color:white;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+/* $(document).ready(function(){
+	
+}); */
+$(function(){
+	//addClass() 미리 정의된 css 가져다 쓰는 방법
+	//css('color', 'red') 내가 만들어 쓰는 방법
+	//필터 contains
+	//$('td:contains("김영빈")').addClass('redcolor');
+	
+	//jquery는 method chain도 가능하다
+	//$('td:contains("김영빈")').siblings().addClass('bluecolor');
+	$('td:contains("김영빈")').siblings().addClass('bluecolor').parent().find("td:eq(0)").addClass('greencolor');
+	
+	//동적 이벤트 부여
+	//bind(하위버전) > on(상위버전)
+	$('#btnclick').bind('click', function() {alert('click');});
+	$('#btnclick').bind('mouseover', function() {
+		document.getElementById('btnclick').style.backgroundColor="red";
+	});
+	$('#btnclick').bind('mouseout', function() {
+		document.getElementById('btnclick').style.backgroundColor="white";
+	});
+	$('#btnclick2').click(function() {
+		$('#btnclick').unbind('click');
+	});
+	
+	//key point
+	//styleDiv 클릭하면 btnclick의 mouseover, mouseout 제거하기
+	$('#styleDiv').click(function() {
+		$('#btnclick').unbind('mouseover');
+		$('#btnclick').unbind('mouseout');
+	});
+	
+	//문제 #styleDiv 에 mouseover , mouseout을 이벤트를 사용하요
+	//mouseover 되면 css (greencolor)  적용(addClass)
+	//mouseout  되면 css (greencolor)  제거 하세요(removeClass)
+	//on 함수를 사용해서 객체표기(json)로 만드세요
+	$('#styleDiv').on({
+		mouseenter: function(){
+			$(this).addClass('greencolor');
+		},
+		mouseleave: function(){
+			$(this).removeClass('greencolor');
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>이름</td>
+			<td>나이</td>
+			<td>취미</td>
+		</tr>
+		<tr>
+			<td>이순신</td>
+			<td>50</td>
+			<td>싸움</td>
+		</tr>
+		<tr>
+			<td>김영빈</td>
+			<td>23</td>
+			<td>잠자기</td>
+		</tr>
+	</table>
+	<hr>
+	<h3>event</h3>
+	<a href="http://www.naver.com">네이버</a>
+	<hr>
+	<div id='btnclick'>CLICK</div>
+	<div id='btnclick2'>CLICK2</div>
+	<div id='styleDiv'>Hello Style 적용</div>
+
+</body>
+</html>

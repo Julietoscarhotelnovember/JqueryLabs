@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Contents Delivery Network</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+/*
+	1. jquery.com 사이트를 통한 
+	2. version 확인
+		- 1.x : 브라우저 호환성
+		- 2.x : 브라우저 호환성(IE 6, 7, 8 지원 종료)
+		- 3.x : 
+		- migrate : 하위 버전을 지원하도록 만든...
+	3. 압축(min)버전, 비압축(dev)버전 제공
+	4. 여러 업체에서 CDN 제공 (MS, 구글, ...)
+	5. 이클립스에서는 자동완성 기능을 위한 jquery 플러그인(jsdt) 설치 필요
+	6. 뭣을 할 수 있는가?
+	The jQuery library contains the following features:
+		HTML/DOM manipulation
+		CSS manipulation
+		HTML event methods
+		Effects and animations
+		AJAX(비동기 처리)
+		Utilities
+	7. 시작은 이렇게(body 로딩 후 실행되도록, DOM이 완성된 이후 실행 되도록) = window.onload
+	$(document).ready(function(){
+		// jQuery methods go here...
+	});
+	This is to prevent any jQuery code from running before the document is finished loading (is ready).
+	8. 기본 문법
+	$(jquery).(선택자).조작함수(속성);
+*/
+
+$(document).ready(function() {
+	$('h1, p').css('color','red');
+	$('#myid').css('color', 'blue');
+	$('.item').css('color', 'blue');
+	$('button').click(function() {
+		$('div').hide();
+	});
+});
+</script>
+</head>
+<body>
+	<h1>hello world</h1>
+	<h1>world</h1>
+	<h2 id="myid">hello id</h2>
+	<h4 class="item">hello class</h4>
+	<p>my p tag</p>
+	<div>hello world div</div>
+	<button>div hide</button>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+ <script type="text/javascript">
+  $(document).ready(function(){
+   $("#testTable tbody tr").hover(function(){
+    $(this).css("background","yellow");
+   },function(){
+    $(this).css("background","white");
+   }).click(function(){
+    alert($(this).children().eq(2).text());
+   });
+  });
+ </script>
+</head>
+<body>
+<!-- tbody 영역에 마우스가 진입되면 노란 배경색 적용
+         나가면 하얀 배경색 적용
+  hover(function(){},function(){});
+   tbody 영역에 한해 마우스 클릭시 자신이 속한 행의 job이 
+   alert()으로 출력된다. 
+ -->
+<table border=1 cellpadding="10" id="testTable">
+ <thead>
+  <tr>
+   <th>no</th><th>name</th><th>job</th>
+  </tr>
+ </thead>
+ <tbody>
+ <tr>
+  <td>1</td><td>알렉스</td><td>엔지니어</td>
+ </tr>
+ <tr>
+  <td>2</td><td>백지영</td><td>탤런트</td>
+ </tr>
+ <tr>
+  <td>3</td><td>이솜</td><td>모델</td>
+ </tr>
+ </tbody>
+</table>
+</body>
+</html>

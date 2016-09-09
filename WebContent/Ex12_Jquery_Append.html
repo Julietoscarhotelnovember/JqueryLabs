@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			$('#btn1').click(function() {
+				//$('p').append("<b>Append text</b>");
+				//$('p').prepend("<b>prepend text</b>");
+				$('p').after("<b>after text</b>");
+			});
+			
+			$('#btn2').click(function() {
+				//$('ol').append("<li>Append text</li>");
+				//$('ol').prepend("<li>prepend text</li>");
+				$('ol').after("<li>after text</li>");
+			});
+			
+			
+		});
+		
+		/* 
+		<p>A</p>  : append  > A홍길동   :  </p> 닫는 태그 앞에
+		<p>A</p>  : prepend > 홍길동A   :  <p> 시작태그 뒤에
+		<p>A</p>  : after   > <p>A</p>홍길동 
+		
+		
+		태그안쪽에     (prepend , append) <p>prepend A append</p>
+		태그바깥쪽에   (before  , afer)   before<p> A </p>after
+		
+		*/
+	</script>
+
+</head>
+<body>
+<p>this is a p태그</p>
+	<p>this is another p태그</p>
+	
+	<ol>
+		<li>List item 1</li>
+		<li>List item 2</li>
+		<li>List item 3</li>
+	</ol>
+	
+	<button id="btn1">Append text</button>
+	<button id="btn2">Appned list items</button>
+
+</body>
+</html>

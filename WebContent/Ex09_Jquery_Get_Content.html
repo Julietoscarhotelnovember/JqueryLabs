@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//속성값 가져오기
+	$('#btn0').click(function(){
+		alert($('#w3').attr("href")); //attr
+	});
+	
+	//attr을 이용해서 여러 개의 속성 값 바꾸기
+	//json 표기법을 사용해서
+	//btn4 클릭 이벤트
+	//안에 w3s 속성에 href, title
+	$('#btn4').click(function(){
+		$('#w3s').attr({
+			"href":"http://www.naver.com",
+			"title":"jquery study"
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<p><a  href="http://www.w3schools.com" id="w3">W3Schools.com</a></p>
+	<button id="btn0">Show href Value</button>
+	
+	<hr>
+	<p id="test1">This is a paragraph.</p>
+	<p id="test2">This is another paragraph.</p>
+
+	<p>
+		Input field: <input type="text" id="test3" value="Mickey Mouse">
+	</p>
+
+	<button id="btn1">Set Text</button>
+	<button id="btn2">Set HTML</button>
+	<button id="btn3">Set Value</button>
+	<button id="btn4">Set Multi attr</button>
+	<hr>
+	<a title="w3popup" href="http://www.w3schools.com" id="w3s">
+	W3Schools.com
+	</a>
+</body>
+</html>

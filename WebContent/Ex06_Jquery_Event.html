@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+//on 이벤트 > bind()
+//off 이벤트 > unbind()
+//http://www.w3schools.com/jquery/event_on.asp
+$(document).ready(function() {
+	//jquery 문법에서는 json표기법을 선호한다 > 여러 이벤트를 걸기 편하고, 붙이고 떼어내기가 편하다
+	$('p').on({
+		mouseenter: function(){
+			$(this).css('background-color', 'blue');
+		},
+		mouseleave: function(){
+			$(this).css('background-color', 'red');
+		},
+		click: function(){
+			$(this).css('background-color', 'green');
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<p>on 이벤트를 사용하여 다중 이벤트 처리하기</p>
+</body>
+</html>

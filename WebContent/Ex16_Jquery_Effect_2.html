@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+				$('#first').slideToggle('slow'); //up , down
+			});
+			
+			
+			$('span.more').click(function(){
+				$('#moreRegion').animate(
+						                 {
+						                   left    : '300px',
+						                   opacity : '0.3',
+						                   height  : '200px',
+						                   width   : '200px'
+						                	 
+						                 } //속성은 객체 표기로
+						                ,'slow');
+			});
+			
+		});
+		
+		
+		
+	</script>
+</head>
+<body>
+
+	<input type="button" id="btn" value="슬라이드 토글">
+	<div id="first"style="display:none; background-color: gold; height: 100px">
+		First Area.....
+	</div>
+	<hr>
+	<span class="more">more Content</span>
+	<div id="moreRegion"
+		style="background-color: gold; height: 100px; width: 100px; position: absolute;">
+		moreRegion..
+	</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('button').click(function(){
+			console.log($(this).text());
+			$(this).replaceWith('<div>' + $(this).text() + "</div>");
+		});
+		
+		$('#btnEmpty').click(function() {
+			$('#mydiv').empty(); //비워라 (자식 요소를)
+			$('#mydiv').append("<b>HELLO</b>")
+			
+		});
+		
+		$('#btnRemove').click(function() {
+			//$(this).remove(); //자기자신 삭제
+			$('#mydiv2').remove();
+		});
+		
+		$('#btndbclick').dblclick(function() {
+			console.log($('#mydiv2').width() + "/" + $('#mydiv2').height());
+		});
+		
+});
+
+
+	</script>
+</head>
+<body>
+	<button>First</button>
+	<button>Second</button>
+	<button>Third</button>
+	
+	<hr>
+	<input type='button' id='btnEmpty' value='empty'>
+	<input type='button' id='btnRemove' value='remove'>
+    <br>
+    <hr>
+    <div id="mydiv">
+    	<p>java</p>
+    	<p>jquery</p>
+    </div>
+	<hr>
+	<div id="mydiv2">
+		<input type='button' id="btndbclick" value="버튼">
+	</div>
+	
+	
+	
+	
+	
+	
+</body>
+</html>

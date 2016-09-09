@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<link rel="stylesheet"	href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+	<style type="text/css">
+	body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 60%;
+	     }
+	</style> 
+	<script type="text/javascript">
+		$(function(){
+			
+			$('#datepicker').datepicker({
+				dateFormat:"yy년mm월dd일"
+			});
+			
+			$('#dialog').dialog(
+				{
+					autoOpen:false,
+					buttons:{
+						      "확인":function(){$(this).dialog("close")},
+						      "취소":function(){$(this).dialog("close")}
+					        } ,
+					resizable:false,
+					height:150,
+					modal:true //POINT : 팝업창을 닫기전까지는 opener 쪽에 작업 못해요
+				}		
+			
+			);
+			
+			$('#button').click(function() {
+				$('#dialog').dialog('open'); // {autOpen:true}
+			});
+		});
+	
+	</script>    
+</head>
+<body>
+		Date : <input type="text" id="datepicker">
+		<hr>
+		<input type="button" id="button" value="OpenDialog">
+		<!-- POPUP DIV -->
+		<div id="dialog" title="Kosta Popup">
+			<p>
+				점심은 무었을 먹을까?
+			</p>
+		</div>
+</body>
+</html>
