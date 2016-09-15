@@ -9,8 +9,9 @@
 		$(function(){
 			$('#txtname').val("kglim");
 			//$('input[type=radio]')
-			//1.Radio 기본값을 잡고 싶다 (name="gender" 2개 > 배열)
-			$('input:radio').val(['F']); //값이 F 녀석을 checked 하겠다
+			//1.Radio의 기본값을 잡고 싶다 (name="gender" 2개 > 배열)
+			$('input:radio').val(['F']); //배열 중 값이 F인 녀석을 checked 하겠다
+			//특이함!
 			
 			console.log($('input:radio').val()); //순서 value return
 			console.log($('input:checked').val());//
@@ -43,12 +44,7 @@
 				}else{
 					alert("false : 없어");
 				}
-				
-				
-				
-			});
-			
-			
+			});	
 		});
 	
 	</script>
